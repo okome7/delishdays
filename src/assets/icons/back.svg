@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="a" data-name="レイヤー 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.87 18.75">
+  <line x1="19.43" y1=".89" x2="2.13" y2="9.52" fill="currentColor" stroke="currentColor" stroke-miterlimit="10" stroke-width="2"/>
+  <line x1="18.98" y1="17.86" x2="2.24" y2="9.58" fill="currentColor" stroke="currentColor" stroke-miterlimit="10" stroke-width="2"/>
+  <polygon points=".22 9.53 2.24 10.58 2.24 8.48 .22 9.53" fill="currentColor" stroke="currentColor" stroke-miterlimit="10" stroke-width=".2"/>
+</svg>

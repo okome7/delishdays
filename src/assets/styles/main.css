@@ -1,0 +1,53 @@
+/* リセット */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* テーマカラー変数 */
+:root {
+  --theme-color: #f5d7d0;
+  --theme-bg: #fbe9e6;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+/* 固定ヘッダー */
+.header {
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: var(--theme-color);
+}
+
+/* 固定フッター */
+.footer {
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: var(--theme-color);
+}
+
+/* メインコンテンツ領域 */
+.main-content {
+  height: 100vh;
+  padding-top: 60px;
+  padding-bottom: 50px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+}

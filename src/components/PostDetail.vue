@@ -126,6 +126,7 @@ const editPost = () => {
       from: from.value,
       tab: tab.value,
       keyword: route.query.keyword || "",
+      category: route.query.category || "",
     },
   });
 };
@@ -134,52 +135,55 @@ const showDeleteModal = ref(false);
 const openDeleteModal = () => (showDeleteModal.value = true);
 const closeDeleteModal = () => (showDeleteModal.value = false);
 
-// 削除ボタン
 const confirmDelete = async () => {
   if (!post.value) return;
 
   const tab = post.value.tab;
+  const category = route.query.category || "";
 
   try {
     await postsStore.removePost(post.value);
     closeDeleteModal();
 
+    // saved から来た場合
     if (from.value === "saved") {
       router.push({ name: "home", query: { tab } });
       return;
     }
 
+    // SearchResults から来た場合
     if (from.value === "SearchResults") {
       const keyword = route.query.keyword || "";
       const results = postsStore.performSearch(keyword);
 
       if (results.length <= 1) {
-        router.push({
-          name: "home",
-          query: { tab },
-        });
+        router.push({ name: "home", query: { tab } });
         return;
       }
 
-      router.push({
-        name: "SearchResults",
-        query: { keyword },
-      });
+      router.push({ name: "SearchResults", query: { keyword } });
       return;
     }
 
-    if (from.value) {
-      router.push({
-        name: from.value,
-        query: {
-          tab: tab,
-          from: from.value,
-        },
-      });
+    // category がある場合 → カテゴリページに戻る
+    if (category) {
+      router.push({ name: "category", query: { tab, category } });
       return;
     }
 
-    // fallback
+    // favorites から来た場合
+    if (from.value === "favorites") {
+      router.push({ name: "favorites" });
+      return;
+    }
+
+    // calendar から来た場合
+    if (from.value === "calendar") {
+      router.push({ name: "calendar" });
+      return;
+    }
+
+    // fallback → ホーム
     router.push({ name: "home", query: { tab } });
   } catch (err) {
     console.error(err);
@@ -417,7 +421,7 @@ const confirmDelete = async () => {
 
 @media (min-width: 1024px) {
   .main-image {
-    height: 70vh; 
+    height: 70vh;
     width: auto;
     max-width: 500px;
     min-width: 200px;

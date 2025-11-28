@@ -123,10 +123,12 @@ const showBackButton = computed(() => {
 
 // 戻る処理
 const goBack = () => {
-  const from = route.query.from;
+  const category = route.query.category;
+  const tab = route.query.tab || "cook";
   const keyword = route.query.keyword || "";
+  const from = route.query.from;
 
-  // 編集画面（add）で editingPost があるとき → 詳細へ戻る
+  // 編集画面（add）で editingPost があるとき → 詳細ページに戻る
   if (route.name === "add" && postsStore.editingPost) {
     const postId = postsStore.editingPost.id;
 
@@ -135,49 +137,54 @@ const goBack = () => {
       params: { id: postId },
       query: {
         from: from ?? "home",
-        tab: route.query.tab ?? "cook",
+        tab,
+        category,
         keyword,
       },
     });
     return;
   }
 
+  // 詳細ページから戻る場合だけ category があればカテゴリページに戻す
+  if (route.name === "PostDetail" && category) {
+    router.push({
+      name: "category",
+      query: { tab, category },
+    });
+    return;
+  }
+
+  // 検索結果から来た場合
   if (from === "SearchResults") {
     const results = postsStore.performSearch(keyword);
     if (results.length === 1) {
-      router.push({ name: "home", query: { tab: route.query.tab || "cook" } });
+      router.push({ name: "home", query: { tab } });
     } else {
-      router.push({
-        name: "SearchResults",
-        query: { keyword },
-      });
+      router.push({ name: "SearchResults", query: { keyword } });
     }
     return;
   }
 
+  // お気に入りページ
   if (from === "favorites") {
     router.push({ name: "favorites" });
-  } else if (from === "category") {
-    router.push({
-      name: "category",
-      query: {
-        tab: route.query.tab || "cook",
-        category: route.query.category || "",
-      },
-    });
-  } else if (from === "calendar") {
-    router.push({ name: "calendar" });
-  } else if (from === "saved") {
-    router.push({
-      name: "home",
-      query: { tab: route.query.tab || "cook" },
-    });
-  } else {
-    router.push({
-      name: "home",
-      query: { tab: route.query.tab || "cook" },
-    });
+    return;
   }
+
+  // カレンダー
+  if (from === "calendar") {
+    router.push({ name: "calendar" });
+    return;
+  }
+
+  // 保存済みから来た場合
+  if (from === "saved") {
+    router.push({ name: "home", query: { tab } });
+    return;
+  }
+
+  // デフォルト → ホームに戻る
+  router.push({ name: "home", query: { tab } });
 };
 </script>
 

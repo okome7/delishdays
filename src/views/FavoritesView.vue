@@ -6,7 +6,7 @@
 
     <div class="saved-posts">
       <div
-        v-for="post in favorites"
+        v-for="post in sortedPosts"
         :key="post.id"
         class="saved-post"
         @click="openDetail(post)"
@@ -37,6 +37,12 @@ const openDetail = (post) => {
     query: { from: "favorites", tab: route.query.tab || "cook" },
   });
 };
+
+const sortedPosts = computed(() => {
+  return [...postsStore.favoritePosts].sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
+});
 </script>
 
 <style scoped>

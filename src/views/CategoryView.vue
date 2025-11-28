@@ -41,10 +41,13 @@ const posts = computed(() =>
   tab === "cook" ? postsStore.cookPosts : postsStore.eatPosts
 );
 
-// 選択カテゴリの投稿だけを表示
+// 選択カテゴリの投稿だけを表示・日付降順にソート
 const filteredPosts = computed(() => {
   if (!loaded.value) return [];
-  return posts.value.filter((p) => p.category === category);
+
+  return posts.value
+    .filter((p) => p.category === category)
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
 });
 
 // 詳細ページに遷移

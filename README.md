@@ -1,5 +1,46 @@
-# Vue 3 + Vite
+# DelishDays
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 概要
+作った料理と外食を分けて記録できるライフログアプリです。  
+Cook / Eat の切り替えやカテゴリ分類、写真・コメント・日付の記録が可能です。  
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## 使用技術
+- Vue 3
+- Pinia
+- Vue Router
+- HTML / CSS / JavaScript
+- IndexedDB（データ永続化）
+
+## 画面構成・機能紹介
+
+### ホーム画面
+- Cook / Eat タブ切替
+- カテゴリボタン（6種類）
+- 投稿一覧（写真・タイトル・日付）
+- キーワード検索
+
+### カレンダー画面
+- 1ヶ月の食事記録を日別に可視化
+- 日付クリックでその日の投稿一覧を表示
+
+### 投稿追加画面
+- 今日の日付が自動入力
+- タイトル / メニュー名入力
+- カテゴリ選択（6つ）
+- 写真追加（1枚以上）
+- コメント・メモ入力
+- Cook / Eat に登録して保存
+
+### お気に入り画面
+- お気に入り投稿一覧の表示
+
+### 設定画面
+- ユーザー設定
+- 通知 ON/OFF
+- テーマカラー変更
+- アプリ情報 / アカウント削除
+
+## 工夫した点
+- IndexedDB を用いてデータをブラウザ内に永続化し、オフラインでも使用可能
+- Vue 3 + Pinia で状態管理を実装し、設定や投稿データの同期を効率化
+- Vue Router によるスムーズな画面遷移

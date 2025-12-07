@@ -275,11 +275,6 @@ const goBack = () => {
   cursor: pointer;
   transition: background-color 0.2s;
   color: #333;
-
-  -webkit-tap-highlight-color: transparent;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
 }
 
 .back-icon {

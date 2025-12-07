@@ -116,11 +116,6 @@ onMounted(async () => {
 
   background-color: #eee;
   color: #333;
-
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-tap-highlight-color: transparent;
 }
 
 .tab-switcher button.active {

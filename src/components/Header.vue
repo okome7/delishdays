@@ -274,6 +274,7 @@ const goBack = () => {
   background-color: #f5f5f5;
   cursor: pointer;
   transition: background-color 0.2s;
+  color: #333;
 
   -webkit-tap-highlight-color: transparent;
   -webkit-appearance: none;

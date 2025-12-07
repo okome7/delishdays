@@ -267,7 +267,7 @@ const goBackAfterEdit = () => {
       from,
       tab,
       ...(category ? { category } : {}),
-      ...(keyword ? { keyword } : {}), 
+      ...(keyword ? { keyword } : {}),
     },
   });
 };
@@ -303,12 +303,19 @@ const closeModal = () => {
   align-items: center;
   padding: 0;
   border: none;
-  background-color: #eee;
-  margin: 0 4px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 15px;
   text-align: center;
+  margin: 0 4px;
+
+  background-color: #eee;
+  color: #333;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .tab-switcher button.active {

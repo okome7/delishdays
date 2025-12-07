@@ -140,6 +140,12 @@ const openDetail = (post) => {
   font-size: 1.5rem;
   cursor: pointer;
   margin-top: 5px;
+  color: #333;
+
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .calendar-grid {

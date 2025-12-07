@@ -37,7 +37,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory("/delishdays/"), // ←リポジトリ名
   routes,
 });
 

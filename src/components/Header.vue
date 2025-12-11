@@ -274,7 +274,7 @@ const goBack = () => {
   background-color: #f5f5f5;
   cursor: pointer;
   transition: background-color 0.2s;
-  color: black;
+  color: #333;
 }
 
 .back-icon {

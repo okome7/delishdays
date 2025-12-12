@@ -8,12 +8,12 @@ import {
 } from "../utils/indexedDB.js";
 
 // デフォルト画像
-const defaultMain = "../images/default_main.jpg";
-const defaultSide = "../images/default_side.jpg";
-const defaultBread = "../images/default_bread.jpg";
-const defaultSweets = "../images/default_sweets.jpg";
-const defaultDrinks = "../images/default_drinks.jpg";
-const defaultOther = "../images/default_other.jpg";
+import defaultMain from "../images/default_main.jpg";
+import defaultSide from "../images/default_side.jpg";
+import defaultBread from "../images/default_bread.jpg";
+import defaultSweets from "../images/default_sweets.jpg";
+import defaultDrinks from "../images/default_drinks.jpg";
+import defaultOther from "../images/default_other.jpg";
 
 export const usePostsStore = defineStore("posts", () => {
   const cookPosts = ref([]);

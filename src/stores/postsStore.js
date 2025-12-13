@@ -7,6 +7,13 @@ import {
   clearPosts,
 } from "../utils/indexedDB.js";
 
+import defaultMain from "../assets/images/default_main.jpg";
+import defaultSide from "../assets/images/default_side.jpg";
+import defaultBread from "../assets/images/default_bread.jpg";
+import defaultSweets from "../assets/images/default_sweets.jpg";
+import defaultDrinks from "../assets/images/default_drinks.jpg";
+import defaultOther from "../assets/images/default_other.jpg";
+
 export const usePostsStore = defineStore("posts", () => {
   const cookPosts = ref([]);
   const eatPosts = ref([]);
@@ -27,12 +34,12 @@ export const usePostsStore = defineStore("posts", () => {
   };
 
   const defaultImages = {
-    Main: "/images/default_main.jpg",
-    Side: "/images/default_side.jpg",
-    Bread: "/images/default_bread.jpg",
-    Sweets: "/images/default_sweets.jpg",
-    Drinks: "/images/default_drinks.jpg",
-    Other: "/images/default_other.jpg",
+    Main: defaultMain,
+    Side: defaultSide,
+    Bread: defaultBread,
+    Sweets: defaultSweets,
+    Drinks: defaultDrinks,
+    Other: defaultOther,
   };
 
   const fixImages = (images) => {

@@ -27,7 +27,7 @@ export const usePostsStore = defineStore("posts", () => {
   };
 
   const defaultImages = {
-    Main: "/images/defaultMain.jpg",
+    Main: "/images/default_main.jpg",
     Side: "/images/default_side.jpg",
     Bread: "/images/default_bread.jpg",
     Sweets: "/images/default_sweets.jpg",

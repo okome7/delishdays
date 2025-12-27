@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import { createPinia } from "pinia";
 import { usePostsStore } from "./stores/postsStore.js";
 import "./assets/styles/main.css";
@@ -37,7 +37,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHashHistory("/delishdays/"),
+  history: createWebHistory("/delishdays/"), // ←リポジトリ名
   routes,
 });
 

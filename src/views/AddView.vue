@@ -382,7 +382,7 @@ textarea {
 @media (max-width: 700px) {
   .radio-group {
     justify-content: flex-start;
-    gap: 8px;
+    gap: 1px;
   }
 
   .radio-item {

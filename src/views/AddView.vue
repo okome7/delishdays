@@ -339,13 +339,29 @@ textarea {
   resize: vertical;
 }
 
-/* fieldset 全体のスタイル */
+/* fieldset全体 */
 .radio-group {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 6px;
-  border: none; /* 枠線を消す */
-  padding: 0; /* 内側の余白をリセット */
+  border: none;
+  padding: 0;
+  gap: 8px;
+}
+
+/* ラジオアイテム */
+.radio-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  color: #333;
+  cursor: pointer;
+  flex: 1 1 0;
+  justify-content: center;
+  min-width: 100px;
+  margin-bottom: 8px;
 }
 
 /* legend のスタイル */
@@ -356,23 +372,24 @@ textarea {
   margin-bottom: 6px;
 }
 
-/* 各ラジオアイテム */
-.radio-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 15px;
-  color: #333;
-  cursor: pointer;
-  flex: 1;
-  justify-content: center;
-}
-
 /* ラジオボタン自体 */
 .radio-item input[type="radio"] {
   accent-color: var(--theme-color);
   width: 18px;
   height: 18px;
+}
+
+@media (max-width: 700px) {
+  .radio-group {
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .radio-item {
+    flex: 0 0 31%;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+  }
 }
 
 /* ファイル選択ボタン */
